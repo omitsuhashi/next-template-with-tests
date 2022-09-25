@@ -1,10 +1,14 @@
 class Task {
+  public children: Array<string>;
+
   constructor(
-    private id: string,
+    public id: string,
     public name: string,
     public description: string,
-    private children: Array<string>,
-  ) {}
+    children?: Array<string>,
+  ) {
+    this.children = children ?? [];
+  }
 
   addChild(childId: string) {
     this.children.push(childId);
