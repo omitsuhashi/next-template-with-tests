@@ -1,14 +1,28 @@
 import SWRConfig from 'swr/dist/utils/config-context';
-import { ReactNode } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import fetcher from './axios';
 import { SWRConfiguration } from 'swr';
+import { render } from '@testing-library/react';
 
-const swrConfig = (children?: ReactNode, config?: SWRConfiguration) => {
+type BBSwrConfigProps = { config?: SWRConfiguration };
+
+const BBSwrConfig = (props: PropsWithChildren<BBSwrConfigProps>) => {
   const _config: SWRConfiguration = {
-    ...config,
+    ...props.config,
     fetcher,
   };
-  return <SWRConfig value={_config}>{children}</SWRConfig>;
+  return <SWRConfig value={_config}>{props.children}</SWRConfig>;
 };
 
-export default swrConfig;
+const TestSwrConfig = (props: PropsWithChildren) => {
+  return (
+    <SWRConfig value={{ dedupingInterval: 0, fetcher: () => new Map() }}>
+      {props.children}
+    </SWRConfig>
+  );
+};
+
+export const testRender = (ui: ReactElement) =>
+  render(ui, { wrapper: TestSwrConfig });
+
+export default BBSwrConfig;
