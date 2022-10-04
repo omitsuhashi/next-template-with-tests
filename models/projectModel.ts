@@ -1,5 +1,5 @@
-class Project {
+class ProjectModel {
   constructor(public name: string, public description: string) {}
 }
 
-export default Project;
+export default ProjectModel;

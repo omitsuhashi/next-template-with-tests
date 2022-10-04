@@ -1,4 +1,4 @@
-class Task {
+class TaskModel {
   public children: Array<string>;
 
   constructor(
@@ -19,4 +19,4 @@ class Task {
   }
 }
 
-export default Task;
+export default TaskModel;

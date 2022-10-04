@@ -1,8 +1,6 @@
-import SWRConfig from 'swr/dist/utils/config-context';
-import { PropsWithChildren, ReactElement } from 'react';
+import { PropsWithChildren } from 'react';
 import fetcher from './axios';
-import { SWRConfiguration } from 'swr';
-import { render } from '@testing-library/react';
+import { SWRConfiguration, SWRConfig } from 'swr';
 
 type BBSwrConfigProps = { config?: SWRConfiguration };
 
@@ -14,15 +12,18 @@ const BBSwrConfig = (props: PropsWithChildren<BBSwrConfigProps>) => {
   return <SWRConfig value={_config}>{props.children}</SWRConfig>;
 };
 
-const TestSwrConfig = (props: PropsWithChildren) => {
+export const TestSwrConfig = (props: PropsWithChildren) => {
   return (
-    <SWRConfig value={{ dedupingInterval: 0, fetcher: () => new Map() }}>
+    <SWRConfig
+      value={{
+        dedupingInterval: 0,
+        provider: () => new Map(),
+        fetcher: fetcher,
+      }}
+    >
       {props.children}
     </SWRConfig>
   );
 };
-
-export const testRender = (ui: ReactElement) =>
-  render(ui, { wrapper: TestSwrConfig });
 
 export default BBSwrConfig;
