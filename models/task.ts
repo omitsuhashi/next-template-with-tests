@@ -1,5 +1,7 @@
-class ProjectModel {
+class TaskModel {
+  public id?: string;
+
   constructor(public name: string, public description: string) {}
 }
 
-export default ProjectModel;
+export default TaskModel;
