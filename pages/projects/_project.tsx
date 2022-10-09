@@ -1,14 +1,14 @@
 import useSWR from 'swr';
 import { PROJECT_API } from '../../constants/api';
 import { PropsWithoutRef } from 'react';
-import ProjectDao from '../../dao/project';
+import { ProjectFetchDao } from '../../dao/project';
 
 type Props = {
   projectId: string;
 };
 
 const Project = (props: PropsWithoutRef<Props>) => {
-  const { data, error } = useSWR<ProjectDao>(
+  const { data, error } = useSWR<ProjectFetchDao>(
     PROJECT_API.getById(props.projectId),
   );
   if (error) return <p>Error...</p>;
