@@ -1,5 +1,5 @@
 {
-  "name": "blackbox",
+  "name": "next-template-with-tests",
   "version": "0.1.0",
   "private": true,
   "scripts": {
