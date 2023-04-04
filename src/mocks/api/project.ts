@@ -1,6 +1,6 @@
 import { rest } from 'msw';
-import { PROJECT_API } from '../../constants/api';
-import ProjectModel from '../../models/project';
+import { PROJECT_API } from '@/constants/api';
+import ProjectModel from '@/models/project';
 
 const projectMocks = [
   rest.get(PROJECT_API.getById('a'), (req, res, context) => {

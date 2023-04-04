@@ -2,9 +2,9 @@ import {
   ProjectCreateDao,
   ProjectFetchDao,
   ProjectUpdateDao,
-} from '../dao/project';
+} from '@/dao/project';
 import TaskModel from './task';
-import { UnregisteredObjectError } from '../constants/error';
+import { UnregisteredObjectError } from '@/constants/error';
 
 class ProjectModel {
   private id?: string;
