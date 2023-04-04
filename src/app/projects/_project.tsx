@@ -1,7 +1,7 @@
 import useSWR from 'swr';
-import { PROJECT_API } from '../../constants/api';
+import { PROJECT_API } from '@/constants/api';
 import { PropsWithoutRef } from 'react';
-import { ProjectFetchDao } from '../../dao/project';
+import { ProjectFetchDao } from '@/dao/project';
 
 type Props = {
   projectId: string;
