@@ -1,3 +1,5 @@
+'use client'
+
 import useSWR from 'swr';
 import { PROJECT_API } from '@/constants/api';
 import { PropsWithoutRef } from 'react';
